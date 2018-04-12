@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  
+  <form-beans >
+    <form-bean name="managerForm" type="com.wgh.actionForm.ManagerForm" />
+	<form-bean name="customerForm" type="com.wgh.actionForm.CustomerForm" />
+    <form-bean name="personnelForm" type="com.wgh.actionForm.PersonnelForm" />
+    <form-bean name="infoTypeForm" type="com.wgh.actionForm.InfoTypeForm" />
+    <form-bean name="shortInfoForm" type="com.wgh.actionForm.ShortInfoForm" />
+    <form-bean name="parameterForm" type="com.wgh.actionForm.ParameterForm" />
+    <form-bean name="sendMailForm" type="com.wgh.actionForm.SendMailForm" /> 
+    <form-bean name="sendLetterForm" type="com.wgh.actionForm.SendLetterForm" />
+  </form-beans>
+  <action-mappings >
+  <!-- 管理员 -->
+	 <action name="managerForm" path="/manager" scope="request" type="com.wgh.action.Manager" validate="true">
+	      <forward name="managerLoginok" path="/main.jsp" />
+      <forward name="managerQuery" path="/manager.jsp" />
+      <forward name="managerAdd" path="/manager_ok.jsp?para=1" />
+      <forward name="pwdQueryModify" path="/pwd_Modify.jsp" />
+      <forward name="pwdModify" path="/pwd_ok.jsp" />
+      <forward name="managerDel" path="/manager_ok.jsp?para=3" />
+      <forward name="modifypwd" path="/main.jsp" />
+      <forward name="error" path="/error.jsp" />
+    </action>
+  <!-- 客户 -->
+	 <action name="customerForm" path="/customer" scope="request" type="com.wgh.action.Customer" validate="true">
+      <forward name="customerQuery" path="/customer.jsp" />
+      <forward name="customerAdd" path="/customer_ok.jsp?para=1" />
+      <forward name="customerQueryModify" path="/customer_modify.jsp" />
+      <forward name="customerModify" path="/customer_ok.jsp?para=2" />
+      <forward name="customerDel" path="/customer_ok.jsp?para=3" />
+      <forward name="error" path="/error.jsp" />
+    </action>
+   <!-- 员工 -->
+	 <action name="personnelForm" path="/personnel" scope="request" type="com.wgh.action.Personnel" validate="true">
+      <forward name="personnelQuery" path="/personnel.jsp" />
+      <forward name="personnelAdd" path="/personnel_ok.jsp?para=1" />
+      <forward name="personnelQueryModify" path="/personnel_modify.jsp" />
+      <forward name="personnelModify" path="/personnel_ok.jsp?para=2" />
+      <forward name="personnelDel" path="/personnel_ok.jsp?para=3" />
+      <forward name="error" path="/error.jsp" />
+    </action>   
+  <!-- 信息类别 -->
+	 <action name="infoTypeForm" path="/infoType" scope="request" type="com.wgh.action.InfoType" validate="true">
+      <forward name="infoTypeQuery" path="/infoType.jsp" />
+      <forward name="infoTypeAdd" path="/infoType_ok.jsp?para=1" />
+      <forward name="infoTypeDel" path="/infoType_ok.jsp?para=3" />
+      <forward name="error" path="/error.jsp" />
+    </action>
+  <!-- 常用短语 -->
+	 <action name="shortInfoForm" path="/shortInfo" scope="request" type="com.wgh.action.ShortInfo" validate="true">
+      <forward name="shortInfoQuery" path="/shortInfo.jsp" />
+      <forward name="typeQuery" path="/shortInfo_add.jsp" />   
+      <forward name="shortInfoAdd" path="/shortInfo_ok.jsp?para=1" />
+       <forward name="shortInfoQueryModify" path="/shortInfo_modify.jsp" />     
+      <forward name="shortInfoModify" path="/shortInfo_ok.jsp?para=2" />
+      <forward name="shortInfoDel" path="/shortInfo_ok.jsp?para=3" />
+      <forward name="selectShortInfo" path="/selectShortInfo.jsp"/>
+      <forward name="error" path="/error.jsp" />
+    </action> 
+   <!-- 系统参数设定 -->
+	 <action name="parameterForm" path="/sysParameterSet" scope="request" type="com.wgh.action.Parameter" validate="true">
+       <forward name="parameterQuery" path="/sysParameter.jsp" />     
+      <forward name="parameterModify" path="/parameter_ok.jsp" />
+      <forward name="error" path="/error.jsp" />
+    </action>
+       <!-- 邮件群发 -->
+	 <action name="sendMailForm" path="/sendMail" scope="request" type="com.wgh.action.SendMail" validate="true">
+       <forward name="addMail" path="/sendMail.jsp" />     
+      <forward name="sendMail" path="/sendMail_ok.jsp" />
+      <forward name="error" path="/error.jsp" />
+    </action>
+        <!-- 收发短信 -->
+	 <action name="sendLetterForm" path="/sendLetter" scope="request" type="com.wgh.action.SendLetter" validate="true">
+      <forward name="addLetter" path="/sendLetter.jsp" />     
+      <forward name="sendLetter" path="/sendLetter_ok.jsp" />
+      <forward name="queryHistory" path="/history.jsp"/>
+      <forward name="getLetterQuery" path="/getLetter.jsp"/>
+      <forward name="error" path="/error.jsp" />
+    </action>        
+  </action-mappings>
+
+</struts-config>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/TestJNDI" type="javax.sql.DataSource" auth="Container"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://192.168.1.199:1433;DatabaseName=db_WuLiu"
+		username="sa" password="111" maxActive="100" maxIdle="30" maxWait="10000" />
+</Context>
